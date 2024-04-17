@@ -1,4 +1,5 @@
 import extractorSvelte from '@unocss/extractor-svelte'
+import { colorResolver } from '@unocss/preset-mini/utils'
 import {
   presetUno,
   presetWebFonts,
@@ -11,12 +12,28 @@ export default {
     presetUno(),
     presetWebFonts({
       provider: 'google',
-      fonts: {},
+      fonts: {
+        big: 'Vast Shadow',
+        big1: 'Holtwood One SC',
+      },
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [],
-  rules: [],
+  rules: [
+    [
+      /^text-stroked-(.+)$/,
+      (...a) =>
+        Object.assign(colorResolver('--stroke-color', 'text-stroked')(...a), {
+          'text-shadow':
+            '-3px -3px var(--stroke-color),' +
+            '-3px  3px var(--stroke-color),' +
+            '3px -3px var(--stroke-color),' +
+            '3px  3px var(--stroke-color)',
+        }),
+      { autocomplete: 'text-stroked-$colors' },
+    ],
+  ],
   shortcuts: [
     {
       screen: 'w-screen h-screen',

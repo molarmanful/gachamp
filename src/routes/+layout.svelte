@@ -7,4 +7,11 @@
 <slot />
 
 <style>
+  :root {
+    @apply bg-black text-white;
+  }
+
+  :global(h1, h2, h3) {
+    @apply font-big;
+  }
 </style>
