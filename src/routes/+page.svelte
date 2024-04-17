@@ -18,13 +18,43 @@
       <em>Double</em> your <em>life savings</em> with
       <em class="text-[2em]">GACHAMP</em>!!!
     </h1>
-    <h2>The <em>premier</em> platform for <em>getting rich quick</em>!</h2>
+    <hr />
+    <h2>
+      The <em>premier</em> platform for <em>winning big</em> and
+      <em>getting rich quick</em>!!!
+    </h2>
+    <hr />
+    <p>
+      <button class="blink bg-green-500 text-red-600">START WINNING!</button>
+    </p>
   </div>
 </header>
 
 <style>
   .nox {
-    box-shadow: 0 0 5px yellow;
+    box-shadow:
+      -3px -3px yellow,
+      -3px 3px yellow,
+      3px -3px yellow,
+      3px 3px yellow,
+      -6px -6px cyan,
+      -6px 6px cyan,
+      6px -6px cyan,
+      6px 6px cyan;
+  }
+
+  .blink {
+    animation: blink 0.5s infinite steps(1);
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      box-shadow: 0 0 0 yellow;
+    }
+    50% {
+      box-shadow: 0 0 15px yellow;
+    }
   }
 
   :is(h1, h2, h3) em {

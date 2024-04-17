@@ -14,4 +14,8 @@
   :global(h1, h2, h3) {
     @apply font-big;
   }
+
+  :global(button) {
+    @apply border-(3 solid current) font-big1 text-2xl p-7;
+  }
 </style>
