@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-  <title>gachamp</title>
+  <title>WIN WITH GACHAMP!</title>
 </svelte:head>
 
 <header class="screen flex">
