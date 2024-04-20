@@ -16,6 +16,6 @@
   }
 
   :global(button) {
-    @apply border-(3 solid current) font-big1 text-2xl p-7;
+    @apply border-(3 solid current) font-big1 text-2xl p-7 cursor-pointer;
   }
 </style>

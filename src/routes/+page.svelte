@@ -25,7 +25,9 @@
     </h2>
     <hr />
     <p>
-      <button class="blink bg-green-500 text-red-600">START WINNING!</button>
+      <a href="/play">
+        <button class="blink bg-green-500 text-red-600">START WINNING!</button>
+      </a>
     </p>
   </div>
 </header>
