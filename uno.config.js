@@ -15,6 +15,7 @@ export default {
       fonts: {
         big: 'Vast Shadow',
         big1: 'Holtwood One SC',
+        sans: 'Michroma',
       },
     }),
   ],

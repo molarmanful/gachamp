@@ -28,6 +28,7 @@
     "prettier-plugin-svelte": "^3.2.3",
     "stylelint-config-standard": "^36.0.0",
     "svelte": "^4.2.14",
+    "svelte-persisted-store": "^0.9.2",
     "typescript": "^5.4.5",
     "unocss": "^0.58.9",
     "vite": "^5.2.9"
