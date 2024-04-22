@@ -1,5 +1,5 @@
 :root {
-  @apply bg-black text-white font-sans text-[2rem];
+  @apply bg-black text-white font-sans text-[1.25rem];
 }
 
 h1,
