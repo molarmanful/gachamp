@@ -39,6 +39,7 @@
       }
     }}
   >
+    <!-- svelte-ignore a11y-label-has-associated-control -->
     <label>
       Name:
       <Input
@@ -49,6 +50,7 @@
         bind:el={signup.name.el}
       />
     </label>
+    <!-- svelte-ignore a11y-label-has-associated-control -->
     <label>
       Birthdate:
       <Input
