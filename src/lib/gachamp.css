@@ -15,3 +15,33 @@ button {
 input {
   @apply font-sans bg-transparent text-white border-(2 ridge current);
 }
+
+.nox {
+  box-shadow:
+    -3px -3px yellow,
+    -3px 3px yellow,
+    3px -3px yellow,
+    3px 3px yellow,
+    -6px -6px cyan,
+    -6px 6px cyan,
+    6px -6px cyan,
+    6px 6px cyan;
+}
+
+.blink {
+  animation: blink 0.5s infinite steps(1);
+}
+
+.bgblur {
+  @apply bg-black/50 backdrop-blur-2;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    box-shadow: 0 0 0 yellow;
+  }
+  50% {
+    box-shadow: 0 0 15px yellow;
+  }
+}

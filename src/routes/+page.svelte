@@ -1,4 +1,6 @@
 <script>
+  import { BgImg } from '$lib'
+  import newvegas from '$lib/assets/newvegas.jpg?enhanced&brightness=.69&saturation=3'
 </script>
 
 <svelte:head>
@@ -6,13 +8,9 @@
 </svelte:head>
 
 <header class="screen flex">
-  <enhanced:img
-    class="absolute inset-0 z--10 full object-cover"
-    alt="new vegas"
-    src="../../static/newvegas.jpg?brightness=.69&saturation=3"
-  />
+  <BgImg alt="new vegas" src={newvegas} />
   <div
-    class="nox m-auto max-w-[65ch] w-full border-(3 purple solid) bg-black/50 p-4 md:p-16 text-center mix-blend-exclusion"
+    class="nox m-auto max-w-[65ch] w-full border-(3 purple solid) bg-black/20 p-4 text-center backdrop-blur-2 md:p-16"
   >
     <h1>
       <em>Double</em> your <em>life savings</em> with
@@ -35,32 +33,6 @@
 <style>
   :root {
     @apply lt-md-text-[3vw];
-  }
-
-  .nox {
-    box-shadow:
-      -3px -3px yellow,
-      -3px 3px yellow,
-      3px -3px yellow,
-      3px 3px yellow,
-      -6px -6px cyan,
-      -6px 6px cyan,
-      6px -6px cyan,
-      6px 6px cyan;
-  }
-
-  .blink {
-    animation: blink 0.5s infinite steps(1);
-  }
-
-  @keyframes blink {
-    0%,
-    100% {
-      box-shadow: 0 0 0 yellow;
-    }
-    50% {
-      box-shadow: 0 0 15px yellow;
-    }
   }
 
   :is(h1, h2, h3) em {

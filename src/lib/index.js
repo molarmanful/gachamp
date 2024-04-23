@@ -1,6 +1,7 @@
 import { persisted } from 'svelte-persisted-store'
 
 export { default as Input } from './Input.svelte'
+export { default as BgImg } from './BgImg.svelte'
 
 export const user = persisted('gachamp-user', {})
 
