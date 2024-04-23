@@ -24,6 +24,10 @@
   })
 </script>
 
+<svelte:head>
+  <title>{'GACHAMP! '.repeat(50)}</title>
+</svelte:head>
+
 <div
   class="{loaded ? 'opacity-100' : 'opacity-0'} flex screen transition-opacity"
 >
