@@ -32,9 +32,7 @@
   class="{loaded ? 'opacity-100' : 'opacity-0'} flex screen transition-opacity"
 >
   <div class="m-auto">
-    {#if $user.name}
-      <Home />
-    {:else}
+    {#if !$user.name}
       <form
         class="flex-(~ col) gap-4"
         on:submit={e => {
@@ -78,6 +76,8 @@
         </label>
         <button>Start!</button>
       </form>
+    {:else}
+      <Home />
     {/if}
   </div>
 </div>
