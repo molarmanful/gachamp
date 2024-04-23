@@ -1,5 +1,6 @@
 <script>
-  import { Input, getAge, user } from '$lib'
+  import { Input, user } from '$lib'
+  import { Home } from '$lib/game'
   import { onMount } from 'svelte'
 
   const signup = {
@@ -28,18 +29,10 @@
 >
   <div class="m-auto">
     {#if $user.name}
-      <h1>Hi {$user.name}</h1>
-      <ul>
-        <li>Age: {getAge($user.bdate)}</li>
-        <li>Balance: ${$user.money}</li>
-      </ul>
-      <button
-        on:click={() => {
-          $user = {}
-        }}>clear</button
-      >
+      <Home />
     {:else}
       <form
+        class="flex-(~ col) gap-4"
         on:submit={e => {
           e.preventDefault()
           let pass = true
@@ -67,7 +60,6 @@
             err={signup.name.err}
           />
         </label>
-        <br />
         <label>
           Birthdate:
           <Input
@@ -80,8 +72,7 @@
             err={signup.name.err}
           />
         </label>
-        <br />
-        <button>Go!</button>
+        <button>Start!</button>
       </form>
     {/if}
   </div>

@@ -7,12 +7,12 @@
 
 <header class="screen flex">
   <enhanced:img
-    class="absolute inset-0 z--10 full object-fill"
+    class="absolute inset-0 z--10 full object-cover"
     alt="new vegas"
     src="../../static/newvegas.jpg?brightness=.69&saturation=3"
   />
   <div
-    class="nox m-auto max-w-[80ch] w-full border-(3 purple solid) bg-black/50 p-16 text-center"
+    class="nox m-auto max-w-[65ch] w-full border-(3 purple solid) bg-black/50 p-4 md:p-16 text-center mix-blend-exclusion"
   >
     <h1>
       <em>Double</em> your <em>life savings</em> with
@@ -25,7 +25,7 @@
     </h2>
     <hr />
     <p>
-      <a href="/play">
+      <a href="play">
         <button class="blink bg-green-500 text-red-600">START WINNING!</button>
       </a>
     </p>
@@ -33,6 +33,10 @@
 </header>
 
 <style>
+  :root {
+    @apply lt-md-text-[3vw];
+  }
+
   .nox {
     box-shadow:
       -3px -3px yellow,
