@@ -34,8 +34,4 @@
   :root {
     @apply lt-md-text-[3vw];
   }
-
-  :is(h1, h2, h3) em {
-    @apply font-big1 font-not-italic text-red-600 text-stroked-yellow;
-  }
 </style>

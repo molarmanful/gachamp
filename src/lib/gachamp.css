@@ -1,11 +1,15 @@
 :root {
-  @apply bg-black text-white font-sans text-[1.25rem];
+  @apply bg-black text-white font-sans md-text-[1.25rem];
 }
 
 h1,
 h2,
 h3 {
   @apply font-big;
+}
+
+:is(h1, h2, h3) em {
+  @apply font-big1 font-not-italic text-red-600 text-stroked-yellow;
 }
 
 button {
@@ -30,6 +34,14 @@ input {
 
 .blink {
   animation: blink 0.5s infinite steps(1);
+}
+
+.hovglow {
+  @apply transition-box-shadow;
+}
+
+.hovglow:hover {
+  box-shadow: 0 0 15px yellow;
 }
 
 .bgblur {

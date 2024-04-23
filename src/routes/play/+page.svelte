@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
 
   import { user } from '$lib'
-  import { Home, Signup } from '$lib/game'
+  import { EULA, Home, Signup } from '$lib/game'
 
   let loaded = false
 
@@ -20,6 +20,8 @@
 >
   {#if !$user.name}
     <Signup />
+  {:else if !$user.eula}
+    <EULA />
   {:else}
     <Home />
   {/if}

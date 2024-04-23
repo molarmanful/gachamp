@@ -6,7 +6,7 @@
 </script>
 
 <enhanced:img
-  class="absolute inset-0 z--10 full object-cover{clazz}"
+  class="fixed inset-0 z--10 full object-cover{clazz}"
   {alt}
   {src}
   {...$$restProps}

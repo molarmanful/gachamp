@@ -63,6 +63,6 @@
         bind:el={signup.bdate.el}
       />
     </label>
-    <button class="bg-yellow text-green-600">Start!</button>
+    <button class="hovglow bg-yellow text-green-600">Sign up!</button>
   </form>
 </div>
