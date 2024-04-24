@@ -7,6 +7,7 @@
   <h1>Pay Debt</h1>
   <form
     class="flex flex-col gap-4"
+    method="post"
     on:submit={e => {
       e.preventDefault()
       const mn = BigInt($user.money)
