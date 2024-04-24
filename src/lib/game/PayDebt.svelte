@@ -9,8 +9,13 @@
     class="flex flex-col gap-4"
     on:submit={e => {
       e.preventDefault()
-      $user.money = BigInt($user.money) - BigInt(value) + ''
-      $user.debt = BigInt($user.debt) - BigInt(value) + ''
+      const mn = BigInt($user.money)
+      const dn = BigInt($user.debt)
+      const vn = BigInt(value)
+      $user.money = mn - vn + ''
+      $user.debt = dn - vn + ''
+      $user.time *= 1 + Number((vn * 10000n) / dn) / 1e4
+      $user.time = 0 | $user.time
       $user.modal = ''
     }}
   >
@@ -18,6 +23,7 @@
       ${value}
       <br />
       <input
+        class="cursor-pointer"
         max={Math.min($user.money, $user.debt)}
         min="0"
         type="range"

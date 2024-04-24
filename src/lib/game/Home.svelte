@@ -19,10 +19,14 @@
 >
   <h1>Welcome to <em>GACHAMP</em>, <em>{$user.name}</em>!</h1>
   <p>
-    You have <strong class="text-green">${commaNum($user.money)}</strong>. You
-    have <strong class="text-red">${commaNum($user.debt)}</strong> of debt to
-    pay off in <strong class="text-red">{msToMin($user.time)}</strong>. What
-    will you do?
+    You have <strong class="text-green">${commaNum($user.money)}</strong>.
+    {#if $user.won}
+      You are currently debt-free, but bigger wins await! Keep gambling.
+    {:else}
+      You have <strong class="text-red">${commaNum($user.debt)}</strong> of debt
+      to pay off in <strong class="text-red">{msToMin($user.time)}</strong>.
+      What will you do?
+    {/if}
   </p>
 
   <div class="my-4 flex flex-(wrap justify-center) gap-4 overflow-auto py-4">
@@ -36,7 +40,14 @@
     >
       Russian Roulette!
     </button>
-    <button class="blink bg-green-500 text-white">Loan Shark!</button>
+    <button
+      class="blink bg-green-500 text-white"
+      on:click={() => {
+        $user.shark = 1
+      }}
+    >
+      Loan Shark!
+    </button>
     <button
       class="hovglow bg-yellow-500 text-black"
       on:click={() => {

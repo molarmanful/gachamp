@@ -1,7 +1,7 @@
 <script>
   import { commaNum, getAge, msToMin, user } from '..'
 
-  import { PayDebt } from '.'
+  import { LoanShark, PayDebt } from '.'
 </script>
 
 <div class="nox fixed right-2 top-2 z-10 bg-black/50 p-4 backdrop-blur-2">
@@ -11,7 +11,11 @@
       Money{'\t'}<strong class="text-green">${commaNum($user.money)}</strong>
     </li>
     <li>Debt{'\t'}<strong class="text-red">${commaNum($user.debt)}</strong></li>
-    <li>Time{'\t'}<strong class="text-red">{msToMin($user.time)}</strong></li>
+    <li>
+      Time{'\t'}<strong class={$user.won ? 'text-green' : 'text-red'}
+        >{msToMin($user.time)}</strong
+      >
+    </li>
   </ul>
 </div>
 
@@ -28,6 +32,8 @@
     <div class="nox m-auto bg-purple-900 p-4 md:p-8">
       {#if $user.modal == 'debt'}
         <PayDebt />
+      {:else if $user.modal == 'shark'}
+        <LoanShark />
       {/if}
     </div>
   </div>
