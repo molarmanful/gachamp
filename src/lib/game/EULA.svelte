@@ -1,12 +1,12 @@
 <script>
   import { BgImg, user } from '..'
 
-  import gambling_group from '$lib/assets/gambling_group.jpg?enhanced&brightness=.69&saturation=2'
+  import lawyer from '$lib/assets/lawyer.jpg?enhanced&brightness=.69&saturation=2'
 </script>
 
-<BgImg alt="group of people gambling" src={gambling_group} />
+<BgImg alt="group of people gambling" src={lawyer} />
 <div
-  class="nox bgblur m-auto full max-w-prose flex flex-(col) border-(3 red solid) p-4 md:p-16"
+  class="nox bgblur m-auto full max-w-prose flex flex-col border-(3 red solid) p-4 md:p-16"
 >
   <h1>End User License Agreement (EULA) for <em>GACHAMP</em></h1>
 

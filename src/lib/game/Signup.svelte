@@ -33,9 +33,10 @@
         }
       }
       if (pass) {
-        $user.name = signup.name.el.value
+        $user.name = signup.name.el.value.toUpperCase()
         $user.bdate = signup.bdate.el.value
-        $user.money = 0 | (Math.random() * 1e5 + 10)
+        $user.money = BigInt(0 | (Math.random() * 1e4 + 10)) + ''
+        $user.debt = BigInt(0 | (Math.random() * 1e6 + 10)) + ''
       }
     }}
   >

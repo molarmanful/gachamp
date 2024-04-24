@@ -13,11 +13,19 @@ h3 {
 }
 
 button {
-  @apply border-(3 solid current) font-big1 text-2xl p-7 cursor-pointer;
+  @apply border-(3 solid current) font-big1 text-[1.5rem] p-3 cursor-pointer;
+}
+
+button.no {
+  @apply bg-transparent border-1 font-(size-unset sans) text-white p-3 transition-colors;
+}
+
+button.no:hover {
+  @apply text-black bg-white;
 }
 
 input {
-  @apply font-sans bg-transparent text-white border-(2 ridge current);
+  @apply font-(size-unset sans) bg-transparent text-white border-(2 ridge current);
 }
 
 .nox {
