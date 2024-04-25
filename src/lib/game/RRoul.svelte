@@ -57,7 +57,7 @@
             $user.rroul.chamber--
             $user.rroul.spun = 0
             $user.rroul.pulled = 1
-            alert('CLICK')
+            alert('*CLICK*')
           }
         }}
       >

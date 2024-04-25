@@ -48,17 +48,32 @@
     >
       Loan Shark!
     </button>
-    <button
-      class="hovglow bg-yellow-500 text-black"
-      on:click={() => {
-        $user.modal = 'debt'
-      }}
-    >
-      Pay Debt
-    </button>
+    {#if $user.debt > 0}
+      <button
+        class="hovglow bg-yellow-500 text-black"
+        on:click={() => {
+          $user.modal = 'debt'
+        }}
+      >
+        Pay Debt
+      </button>
+    {/if}
     <button
       class="hovglow bg-red-500 text-white"
       on:click={() => {
+        if ($user.debt > 0) {
+          if ($user.debt > $user.money) {
+            if (
+              !confirm(
+                `Are you sure you want to leave? You still have unpaid debts!`
+              )
+            )
+              return
+          } else {
+            $user.money = BigInt($user.money) - BigInt($user.debt) + ''
+            $user.debt = '0'
+          }
+        }
         $user.over = 1
       }}
     >

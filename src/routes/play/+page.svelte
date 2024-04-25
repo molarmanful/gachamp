@@ -5,12 +5,17 @@
   import { Dead, EULA, Home, LoanShark, RRoul, Signup, Won } from '$lib/game'
 
   let loaded = false
+  let t0 = Date.now()
 
   $: if ($user.debt <= 0) {
     $user.money = BigInt($user.money) - BigInt($user.debt) + ''
     $user.debt = '0'
     $user.time = 6e5
     $user.won = 1
+  } else if ($user.won) {
+    $user.time = 6e5
+    $user.won = 0
+    t0 = Date.now()
   }
 
   onMount(() => {
@@ -21,9 +26,10 @@
     requestAnimationFrame(() => {
       loaded = true
 
-      let t0 = Date.now()
       setInterval(() => {
-        if ($user.started && !$user.won) {
+        if ($user.started && !($user.won || $user.dead || $user.over)) {
+          const mn = BigInt($user.money)
+          const dn = BigInt($user.debt)
           if ($user.time == void 0) {
             $user.time = 6e5
             t0 = Date.now()
@@ -31,10 +37,23 @@
             let t1 = Date.now()
             $user.time -= t1 - t0
             t0 = t1
-          } else if (BigInt($user.debt) > BigInt($user.money)) {
+            if ($user.loan && t0 - $user.loan.time >= 6e4) {
+              $user.loan.int++
+              const lv = BigInt($user.loan.value)
+              const li = BigInt($user.loan.int)
+              const d = 20n ** li
+              const n = (lv * 21n ** li + d - 1n) / d - lv
+              if (mn < n) {
+                $user.dead = 1
+                return
+              }
+              $user.money = mn - n + ''
+              $user.loan.time += 6e4
+            }
+          } else if (dn > mn) {
             $user.over = 1
           } else {
-            $user.money = BigInt($user.money) - BigInt($user.debt) + ''
+            $user.money = mn - dn + ''
             $user.debt = '0'
             $user.time = 6e5
             $user.won = 1

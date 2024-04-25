@@ -1,5 +1,5 @@
 <script>
-  import { user } from '..'
+  import { commaNum, user } from '..'
   let value = 0
 </script>
 
@@ -17,11 +17,16 @@
       $user.debt = dn - vn + ''
       $user.time *= 1 + Number((vn * 10000n) / dn) / 1e4
       $user.time = 0 | $user.time
+      if ($user.loan) {
+        const lv = BigInt($user.loan.value)
+        if (lv > vn) $user.loan.value = lv - vn + ''
+        else $user.loan = null
+      }
       $user.modal = ''
     }}
   >
     <label>
-      ${value}
+      ${commaNum(value)}
       <br />
       <input
         class="cursor-pointer"
