@@ -2,7 +2,16 @@
   import { onMount } from 'svelte'
 
   import { user } from '$lib'
-  import { Dead, EULA, Home, LoanShark, RRoul, Signup, Won } from '$lib/game'
+  import {
+    Dead,
+    Dice,
+    EULA,
+    Home,
+    LoanShark,
+    RRoul,
+    Signup,
+    Won,
+  } from '$lib/game'
 
   let loaded = false
   let t0 = Date.now()
@@ -87,6 +96,8 @@
     <RRoul />
   {:else if $user.shark}
     <LoanShark />
+  {:else if $user.dice}
+    <Dice />
   {:else}
     <Home />
   {/if}

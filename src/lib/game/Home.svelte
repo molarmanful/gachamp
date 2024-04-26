@@ -30,7 +30,14 @@
   </p>
 
   <div class="my-4 flex flex-(wrap justify-center) gap-4 overflow-auto py-4">
-    <button class="blink bg-yellow-500 text-black">Dice!</button>
+    <button
+      class="blink bg-yellow-500 text-black"
+      on:click={() => {
+        $user.dice = 1
+      }}
+    >
+      Dice!
+    </button>
     <button class="blink bg-yellow-500 text-black">Coin Flip!</button>
     <button
       class="blink bg-green-500 text-white"
