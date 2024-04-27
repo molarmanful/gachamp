@@ -87,10 +87,7 @@
                 .reduce((a, b) => a + b, 0)
               const won = sum == 7 || sum == 12
               if (won)
-                $user.money =
-                  BigInt($user.money) +
-                  (BigInt(value) * 7n) / BigInt(1 + checked) +
-                  ''
+                $user.money = BigInt($user.money) + BigInt(value) * 7n + ''
               alert(won ? 'YOU WON! Keep winning!' : 'You lost :( Try again!')
               rolling = false
             }
