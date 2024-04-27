@@ -81,9 +81,9 @@
                 .map(r => r.value)
                 .reduce((a, b) => a + b, 0)
               const won = sum == 7 || sum == 12
-              alert(won ? 'YOU WON! Keep winning!' : 'You lost :( Try again!')
               if (won)
                 $user.money = BigInt($user.money) + BigInt(value) * 7n + ''
+              alert(won ? 'YOU WON! Keep winning!' : 'You lost :( Try again!')
               rolling = false
             }
             $user.money = BigInt($user.money) - BigInt(value) + ''
