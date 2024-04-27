@@ -33,6 +33,11 @@
   >
     {#if !started}
       <h1>Dice!</h1>
+      <p>A game so simple, you could play it half-dead!</p>
+      <p>
+        Roll 2 dice. If the dice add up to 7 or 12, you win x7 your bet! You can
+        also double your bet to add an extra die during your roll.
+      </p>
       <button
         class="blink mt-4 bg-green-500 text-white"
         disabled={BigInt($user.money) < 100n}
