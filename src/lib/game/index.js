@@ -6,6 +6,7 @@ export { default as Dead } from './Dead.svelte'
 export { default as Won } from './Won.svelte'
 
 export { default as Dice } from './Dice.svelte'
+export { default as Race } from './Race.svelte'
 export { default as RRoul } from './RRoul.svelte'
 export { default as LoanShark } from './LoanShark.svelte'
 export { default as PayDebt } from './PayDebt.svelte'

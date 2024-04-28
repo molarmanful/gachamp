@@ -9,6 +9,7 @@
     Home,
     LoanShark,
     RRoul,
+    Race,
     Signup,
     Won,
   } from '$lib/game'
@@ -96,6 +97,8 @@
     <RRoul />
   {:else if $user.shark}
     <LoanShark />
+  {:else if $user.race}
+    <Race />
   {:else if $user.dice}
     <Dice />
   {:else}

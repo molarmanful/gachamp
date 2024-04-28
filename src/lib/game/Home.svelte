@@ -38,7 +38,14 @@
     >
       Dice!
     </button>
-    <button class="blink bg-yellow-500 text-black">Coin Flip!</button>
+    <button
+      class="blink bg-yellow-500 text-black"
+      on:click={() => {
+        $user.race = 1
+      }}
+    >
+      Rat Race!
+    </button>
     <button
       class="blink bg-green-500 text-white"
       on:click={() => {

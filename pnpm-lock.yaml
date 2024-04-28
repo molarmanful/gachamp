@@ -59,6 +59,9 @@ importers:
       globals:
         specifier: ^13.24.0
         version: 13.24.0
+      labyrinthos:
+        specifier: ^1.1.2
+        version: 1.1.2
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
@@ -1714,6 +1717,9 @@ packages:
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
+
+  labyrinthos@1.1.2:
+    resolution: {integrity: sha512-wpCA8iKpsQswymVQdn2pU9H3kOltaf9yldwa+ZWS/G+0nkiIAJU/BG5LsXRhCWyw8WQXZQplHL/B0zUPmDNnhQ==}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -4143,6 +4149,8 @@ snapshots:
   known-css-properties@0.30.0: {}
 
   kolorist@1.8.0: {}
+
+  labyrinthos@1.1.2: {}
 
   levn@0.4.1:
     dependencies:

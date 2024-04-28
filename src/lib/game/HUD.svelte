@@ -2,21 +2,39 @@
   import { commaNum, getAge, msToMin, user } from '..'
 
   import { LoanShark, PayDebt } from '.'
+
+  if ($user.tog == void 0) $user.tog = true
 </script>
 
-<div class="nox fixed right-2 top-2 z-10 bg-black/50 p-4 backdrop-blur-2">
-  <ul class="list-none pl-0">
-    <li><strong>{$user.name}</strong>, age {getAge($user.bdate)}</li>
-    <li>
-      Money{'\t'}<strong class="text-green">${commaNum($user.money)}</strong>
-    </li>
-    <li>Debt{'\t'}<strong class="text-red">${commaNum($user.debt)}</strong></li>
-    <li>
-      Time{'\t'}<strong class={$user.won ? 'text-green' : 'text-red'}
-        >{msToMin($user.time)}</strong
-      >
-    </li>
-  </ul>
+<div
+  class="nox fixed right-2 top-2 z-10 cursor-pointer bg-black/50 p-4 backdrop-blur-2"
+  role="button"
+  tabindex="0"
+  on:click={() => {
+    $user.tog = !$user.tog
+  }}
+  on:keyup={e => {
+    if (e.key == 'Enter' || e.key == ' ') $user.tog = !$user.tog
+  }}
+>
+  {#if $user.tog}
+    <ul class="list-none pl-0">
+      <li><strong>{$user.name}</strong>, age {getAge($user.bdate)}</li>
+      <li>
+        Money{'\t'}<strong class="text-green">${commaNum($user.money)}</strong>
+      </li>
+      <li>
+        Debt{'\t'}<strong class="text-red">${commaNum($user.debt)}</strong>
+      </li>
+      <li>
+        Time{'\t'}<strong class={$user.won ? 'text-green' : 'text-red'}
+          >{msToMin($user.time)}</strong
+        >
+      </li>
+    </ul>
+  {:else}
+    ...
+  {/if}
 </div>
 
 {#if $user.modal}
