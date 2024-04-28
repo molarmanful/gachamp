@@ -160,7 +160,7 @@
 </div>
 {#if !running && countdown <= 0}
   <div
-    class="nox m-auto max-w-prose w-full border-(3 red solid) bg-black/50 p-4 text-center backdrop-blur-2 md:p-16"
+    class="nox m-auto max-w-prose w-full border-(3 cyan solid) bg-black/50 p-4 text-center backdrop-blur-2 md:p-16"
   >
     {#if !started}
       <h1>Rat Race!</h1>
@@ -172,7 +172,7 @@
       <p>
         Place your bet on a rat. If your rat is first to reach the cheese, then
         you win a share of the betting pool! If your rat comes in second place,
-        then you'll still get half your bet back. Don't be shy, go big or go
+        then you'll still get half your bet back. So don't be shy, go big or go
         home!
       </p>
 
