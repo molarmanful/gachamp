@@ -216,7 +216,7 @@
           {/each}
         </div>
         <label>
-          Pot: ${commaNum(BigInt(value) + pool)}
+          Pool: ${commaNum(BigInt(value) + pool)}
           <br />
           Bet: ${commaNum(value)}
           <br />
