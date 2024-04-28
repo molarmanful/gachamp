@@ -122,7 +122,7 @@
       new Rat('🦐', 29, 15),
     ]
 
-    votes = rats.map(() => 0 | (Math.random() * 10))
+    votes = rats.map(() => 0 | (Math.random() * 9))
     pool = BigInt(
       0 |
         ((Math.random() * Math.min($user.money, 1e5) + 100) *
@@ -142,11 +142,11 @@
         clearInterval(int)
         running = false
         alert(
-          `${place == 0 ? 'YOUR RAT WON FIRST PLACE! Keep it up!' : 'Your rat lost :( Try again!'}\n\n${dones.map((r, i) => i + 1 + '. ' + r).join`\n`}`
+          `${place == 0 ? 'YOUR RAT WON! Keep it up!' : 'Your rat lost :( Try again!'}\n\n${dones.map((r, i) => i + 1 + '. ' + r).join`\n`}`
         )
         init()
       }
-    })
+    }, 30)
   }
 
   onMount(() => {
@@ -200,7 +200,7 @@
     {:else}
       <form class="m-auto flex flex-col gap-4">
         <p class="m-0">Choose your rat:</p>
-        <div class="flex gap-8 flex-justify-center">
+        <div class="flex-wrap gap-8 flex-justify-center">
           {#each rats as rat, i}
             <label class="cursor-pointer">
               <input
