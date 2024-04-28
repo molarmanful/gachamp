@@ -6,7 +6,7 @@
 
   import { HUD } from '.'
 
-  let maze, rats, votes, place
+  let maze, rats, place
   let value = 100
   let group = '🐁'
   let started = false
@@ -14,13 +14,20 @@
   let out = ''
   let countdown = 0
   let dones = []
-  let pool = 0n
 
   const map = new labyrinthos.TileMap({ width: 30, height: 30 })
 
   class Rat {
     constructor(id, x, y) {
       this.id = id
+      this.votes = 0 | (Math.random() * 9)
+      this.pool = this.votes
+        ? BigInt(
+            0 |
+              ((Math.random() * Math.min($user.money, 1e5) * 2 + 100) *
+                this.votes)
+          )
+        : 0n
       this.tracks = []
       this.back = false
       this.done = false
@@ -36,7 +43,8 @@
           if (place == 0) {
             $user.money =
               BigInt($user.money) +
-              pool / BigInt(votes[rats.findIndex(rat => rat.id == group)]) +
+              (rats.reduce((a, { pool }) => a + pool, 0n) * BigInt(value)) /
+                this.pool +
               ''
           } else if (place == 1) {
             $user.money = BigInt($user.money) + BigInt(value) / 2n + ''
@@ -122,13 +130,6 @@
       new Rat('🦐', 29, 15),
     ]
 
-    votes = rats.map(() => 0 | (Math.random() * 9))
-    pool = BigInt(
-      0 |
-        ((Math.random() * Math.min($user.money, 1e5) + 100) *
-          votes.reduce((a, b) => a + b, 0))
-    )
-
     disp()
   }
 
@@ -200,25 +201,33 @@
     {:else}
       <form class="m-auto flex flex-col gap-4">
         <p class="m-0">Choose your rat:</p>
-        <div class="flex-wrap gap-8 flex-justify-center">
-          {#each rats as rat, i}
+        <div class="flex flex-(wrap justify-center) gap-8">
+          {#each rats as { id, votes }}
             <label class="cursor-pointer">
               <input
                 name="rat"
                 class="cursor-pointer"
                 type="radio"
-                value={rat.id}
+                value={id}
                 bind:group
               />
-              {rat.id}
-              {votes[i] + (group == rat.id)}
+              {id}
+              {votes + (group == id)}
             </label>
           {/each}
         </div>
         <label>
-          Pool: ${commaNum(BigInt(value) + pool)}
+          Pool: ${commaNum(
+            BigInt(value) + rats.find(({ id }) => id == group).pool
+          )}
           <br />
           Bet: ${commaNum(value)}
+          ({(
+            Number(
+              (BigInt(value) * 10000n) /
+                (rats.find(({ id }) => id == group).pool + BigInt(value))
+            ) / 100
+          ).toFixed(2)}% Share)
           <br />
           <input
             class="cursor-pointer"
@@ -232,8 +241,9 @@
           class="blink bg-green-500 text-white"
           on:click={() => {
             $user.money = BigInt($user.money) - BigInt(value) + ''
-            pool += BigInt(value)
-            votes[rats.findIndex(rat => rat.id == group)]++
+            const rat = rats[rats.findIndex(({ id }) => id == group)]
+            rat.pool += BigInt(value)
+            rat.votes++
             countdown = 3
             const int = setInterval(() => {
               countdown--
